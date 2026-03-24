@@ -3,13 +3,15 @@ import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
 public class FrmJuego extends JFrame {
 
     private JPanel pnlJugador1; 
-    private JPanel pnlJugador2; 
+    private JPanel pnlJugador2;
+    private JTabbedPane tpJugadores; 
     private Jugador jugador1 = new Jugador();
     private Jugador jugador2 = new Jugador();
 
@@ -27,7 +29,7 @@ public class FrmJuego extends JFrame {
         btnVerificar.setBounds(120, 10, 100, 25);
         add(btnVerificar);
 
-        JTabbedPane tpJugadores = new JTabbedPane();
+        tpJugadores = new JTabbedPane();
         tpJugadores.setBounds(10, 50, 460, 300);
         add(tpJugadores);
 
@@ -37,7 +39,7 @@ public class FrmJuego extends JFrame {
 
         pnlJugador2 = new JPanel();
         pnlJugador2.setBackground(new Color(0, 255, 255));
-         pnlJugador2.setLayout(null);
+        pnlJugador2.setLayout(null);
 
         tpJugadores.addTab("Martin Estrada Contreras", pnlJugador1);
         tpJugadores.addTab("Carlos Mario Manco", pnlJugador2);
@@ -45,13 +47,23 @@ public class FrmJuego extends JFrame {
         btnRepartir.addActionListener(e -> {
             repartir();
         });
-
+        
+        btnVerificar.addActionListener(e -> {
+            verificar();
+        });    
     }    
     private void repartir(){
         jugador1.repartir();
         jugador2.repartir();
         jugador1.mostrar(pnlJugador1);
-        jugador2.mostrar(pnlJugador2);
+        jugador2.mostrar(pnlJugador2);        
         
+    }
+    private void verificar(){
+        if (tpJugadores.getSelectedIndex()==0){
+            JOptionPane.showMessageDialog(null, jugador1.getGrupos());
+        }else{
+            JOptionPane.showMessageDialog(null, jugador2.getGrupos());
+        }
     }
 }

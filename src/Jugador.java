@@ -25,5 +25,21 @@ public class Jugador {
         }         
         pnl.repaint();
     }  
+    public String getGrupos(){
+        int[] contadores = new int[NombreCarta.values().length];
+         for (Carta carta:cartas){
+              contadores[carta.getNombre().ordinal()] ++;
+
+        }    
+        String resultado = "";
+        for (int i = 0; i < contadores.length; i++){
+            if (contadores[i] >= 2){
+                resultado += Grupo.values()[contadores[i]]+" De "+NombreCarta.values()[i]+"\n"; 
+                
+            }
+
+        }
+        return resultado;
+    }
   
 }

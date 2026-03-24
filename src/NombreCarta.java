@@ -1,0 +1,16 @@
+public enum NombreCarta {
+AS,
+DOS,
+TERS,
+CUATRO,
+CINCO,
+SEIS,
+SIETE,
+OCHO,
+NUEVE,
+DIEZ,
+JACK,
+QUEEN,
+KING
+
+}
