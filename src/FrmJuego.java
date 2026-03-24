@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+@SuppressWarnings("unused")
 public class FrmJuego extends JFrame {
 
     private JPanel pnlJugador1; 
@@ -41,16 +42,37 @@ public class FrmJuego extends JFrame {
         pnlJugador2.setBackground(new Color(0, 255, 255));
         pnlJugador2.setLayout(null);
 
-        tpJugadores.addTab("Martin Estrada Contreras", pnlJugador1);
-        tpJugadores.addTab("Carlos Mario Manco", pnlJugador2);
+        tpJugadores.addTab("CARLOS  TUBERQUIA", pnlJugador1);
+        tpJugadores.addTab("JHOISER  VALDERRAMA", pnlJugador2);
 
         btnRepartir.addActionListener(e -> {
             repartir();
         });
-        
+        // punto 2 del laboratorio
         btnVerificar.addActionListener(e -> {
-            verificar();
-        });    
+
+            Jugador j;
+
+            if (tpJugadores.getSelectedIndex() == 0) {
+                j = jugador1;
+            } else {
+                j = jugador2;
+            }
+
+            String resultado = "";
+
+            resultado += j.getGrupos();
+
+            resultado += "\nSobran:\n";
+            resultado += j.getSobran();
+
+            resultado += "\nPuntos:\n";
+            resultado += j.getPuntaje();
+
+            JOptionPane.showMessageDialog(null, resultado);
+
+        });
+       
     }    
     private void repartir(){
         jugador1.repartir();
