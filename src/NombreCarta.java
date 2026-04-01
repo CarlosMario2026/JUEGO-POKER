@@ -1,7 +1,7 @@
 public enum NombreCarta {
 AS,
 DOS,
-TERS,
+TRES,
 CUATRO,
 CINCO,
 SEIS,
