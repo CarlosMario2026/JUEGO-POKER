@@ -70,16 +70,13 @@ public class FrmJuego extends JFrame {
             resultado += j.getPuntaje();
 
             JOptionPane.showMessageDialog(null, resultado);
-
-        });
-       
+        });       
     }    
     private void repartir(){
         jugador1.repartir();
         jugador2.repartir();
         jugador1.mostrar(pnlJugador1);
-        jugador2.mostrar(pnlJugador2);        
-        
+        jugador2.mostrar(pnlJugador2);                
     }
     private void verificar(){
         if (tpJugadores.getSelectedIndex()==0){
